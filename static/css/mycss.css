@@ -1,0 +1,104 @@
+/*font*/
+body {
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: Microsoft YaHei;
+}
+
+/*define container size for xxl*/
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .site-navigation ul li a {
+        color: black;
+    }
+}
+
+.section {
+    padding: 50px 0;
+}
+
+.badge-small {
+	width: 20px;
+	height: 20px;
+}
+
+.slider {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+@media screen and (max-width: 1500px) {
+    .modal-content-left {
+        border-bottom: 1px solid #DDDDDD;
+        padding-bottom: 20px;
+    }
+    .modal-content-right {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .modal-content-left {
+        border-right: 1px solid #DDDDDD;
+    }
+}
+
+.modal {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.no-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+tr th {
+    text-align: center;
+}
+
+@media screen and (min-width: 1500px) {
+    .close {
+        float: right;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .close {
+        position: fixed;
+        right: 8%;
+        top: 40px;
+        z-index: 99999;
+    }
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+
+.border-div {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+.my-button {
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    width: 40%;
+    cursor: pointer;
+}

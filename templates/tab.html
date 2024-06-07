@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Stroke Diagnosis on CT Imaging (Comprehensive)</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="{{ url_for('static', filename= 'images/logo-only.png') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/swiper.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+	<script src="{{ url_for('static', filename= 'js/custom.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/mycss.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/grid.css') }}">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+	<!-- header -->
+	<header class="site-header">
+		<div class="nav-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-120 d-flex flex-wrap justify-content-between align-items-center">
+						<div class="site-branding d-flex align-items-center">
+						   <a class="d-block" href="{{ url_for('index')}}" rel="home"><img class="d-block" src="{{ url_for('static', filename= 'images/logo.svg') }}" alt="logo" style="height: 50px;"></a>
+						</div><!-- .site-branding -->
+
+						<!-- navigation bar -->
+						<nav class="site-navigation d-flex justify-content-end align-items-center">
+							<ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
+								<li class="{% block home_tab_toggle %} {% endblock %}"><a href="{{ url_for('index')}}"><i class="fa fa-home"></i> Home</a></li>
+
+								<li class="{% block about_tab_toggle %} {% endblock %}"><a href="{{ url_for('about')}}"><i class="fa fa-info-circle"></i> About Us</a></li>
+
+							</ul>
+						</nav><!-- .site-navigation -->
+
+
+						<div class="hamburger-menu d-lg-none">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div><!-- .hamburger-menu -->
+					</div><!-- .col -->
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</div><!-- .nav-bar -->
+	</header>
+
+	<br><br><br>
+
+	<div class="section" style="padding-bottom: 0px;">
+		<div class="container">
+			<img src="{{ url_for('static', filename= 'images/banner.jpg') }}" style="width: 100%;">
+		</div>
+	</div>
+
+	{% block content %} {% endblock %}
+
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.collapsible.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/swiper.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.countdown.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/circle-progress.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.countTo.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.barfiller.js') }}"></script>
+	<script type='text/javascript' src="{{ url_for('static', filename= 'js/custom.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="row" style="margin-bottom: 20px;">
+	<div class="col-120" style="text-align: center;">
+		<h3>Stroke Diagnosis Report</h3>
+	</div>
+</div>
+
+<span style="position: absolute; top: 8px; right: 8px;">
+	<a href="{{ url_for('static', filename=path) }}" download="report.pdf">
+		<img src="{{ url_for('static', filename='images/PDF.png') }}" style="height: 50px; width: 36px;">
+	</a>
+</span>
+
+<div class="row" style="width: 100%;">
+	<div class="col-120">
+		<div style="display: inline-block; width: 120px;">
+			<b>Registered on:</b>
+		</div>
+		<div style="display: inline-block;">{{ time }}</div>
+	</div>
+	<div class="col-120">
+		<div style="display: inline-block; width: 120px;">
+			<b>Reported on:</b>
+		</div>
+		<div style="display: inline-block;" id="reported_time"></div>
+	</div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+	<div class="col-120" style="background-color: #D3D3D3; border-radius: 20px;">
+		<b>1. Diagnosis</b>
+	</div>
+	<div class="col-120">The patient</div>
+</div>
+
+<div class="row justify-content-center" style="margin-top: 10px;">
+	<div class="col-120" style="background-color: #D3D3D3; border-radius: 20px; margin-bottom: 10px;">
+		<b>2. Stroke Lesion Segmentation (click to zoom-in):</b>
+	</div>
+</div>
+
+<div class="row" style="position: absolute; bottom: 0px; width: 100%; color: grey; font-size: 7pt;">
+	<div class="col-120" style="text-align: center;">
+		<i>Note: this report is for demo only, the results cannot be used in any clinics.</i>
+	</div>
+</div>
