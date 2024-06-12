@@ -5,8 +5,8 @@
 </div>
 
 <span style="position: absolute; top: 8px; right: 8px;">
-	<a href="{{ url_for('static', filename=path) }}" download="report.pdf">
-		<img src="{{ url_for('static', filename='images/PDF.png') }}" style="height: 50px; width: 36px;">
+	<a href="{{ url_for('static', filename='{}/report.pdf'.format(folder)) }}" download="report.pdf">
+		<img src="{{ url_for('static', filename='images/PDF.png') }}" style="height: 50px; width: 50px;">
 	</a>
 </span>
 
@@ -15,13 +15,13 @@
 		<div style="display: inline-block; width: 120px;">
 			<b>Registered on:</b>
 		</div>
-		<div style="display: inline-block;">{{ time }}</div>
+		<div style="display: inline-block;">{{ in_time }}</div>
 	</div>
 	<div class="col-120">
 		<div style="display: inline-block; width: 120px;">
 			<b>Reported on:</b>
 		</div>
-		<div style="display: inline-block;" id="reported_time"></div>
+		<div style="display: inline-block;">{{ out_time }}</div>
 	</div>
 </div>
 
@@ -36,6 +36,19 @@
 	<div class="col-120" style="background-color: #D3D3D3; border-radius: 20px; margin-bottom: 10px;">
 		<b>2. Stroke Lesion Segmentation (click to zoom-in):</b>
 	</div>
+	<div class="col-120">
+		{% for i in range(1, num_files+1) %}
+		<div class="row" style="width: 100%; cursor: pointer;" onclick="open_zoomin_modal({{ i }}, {{ num_files }}, '{{ folder }}')">
+			<div class="col-10">
+				<div style="height: 30xp; width: 30px; text-align: center; position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); font-size: 12pt; font-weight: bold;">
+					{{ i }}
+				</div>
+			</div>
+			<div class="col-55"><img src="{{ url_for('static', filename='{}/input/{}.jpg'.format(folder, i)) }}" style="width: 100%;"></div>
+			<div class="col-55"><img src="{{ url_for('static', filename='{}/output/{}.jpg'.format(folder, i)) }}" style="width: 100%;"></div>
+		</div>
+		{% endfor %}
+	</div>
 </div>
 
 <div class="row" style="position: absolute; bottom: 0px; width: 100%; color: grey; font-size: 7pt;">
@@ -43,3 +56,24 @@
 		<i>Note: this report is for demo only, the results cannot be used in any clinics.</i>
 	</div>
 </div>
+
+
+<div id="zoomin_modal" class="modal" style="top: 5%; z-index: 9999;">
+	<div class="modal-content col-lg-100 offset-lg-10 col-120">
+		<div class="modal-header">
+			<div class="row" style="text-align: center;">
+				<div class="col-20" onclick="left()" style="cursor: pointer;"><i class="fa fa-chevron-left"></i></div>
+				<div id="zoomin_modal_title" class="col-60" style="font-weight: bold;"></div>
+				<div class="col-20" onclick="right()" style="cursor: pointer;"><i class="fa fa-chevron-right"></i></div>
+			</div>
+			<span class="close" onclick="close_zoomin_modal()" style="top: 5%;">&times;</span>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-md-60" style="text-align: center;"><img src="" id="zoomin_original" style="max-width: 100%;"></div>
+				<div class="col-md-60" style="text-align: center;"><img src="" id="zoomin_segmentation" style="max-width: 100%;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

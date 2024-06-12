@@ -58,6 +58,10 @@
 		</div>
 	</div>
 
+	<div id="submit_load" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 9999; background-color: rgba(256,256,256,0.5);">
+		<div class="loader"></div>
+	</div>
+
 	{% block content %} {% endblock %}
 
 	<script type="text/javascript" src="{{ url_for('static', filename= 'js/jquery.js') }}"></script>

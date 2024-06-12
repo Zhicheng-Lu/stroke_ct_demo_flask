@@ -50,15 +50,16 @@
 <script type="text/javascript">
 	var num_imgs = 0;
 	var current_img = 0;
+	var folder = '';
 
 	function submit_ct_scans() {
+		document.getElementById('submit_load').style.display = 'block';
+
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById('diagnosis_results').innerHTML = xhttp.responseText;
-				now = new Date();
-				currentDateTime = now.toLocaleString();
-				document.getElementById("reported_time").innerHTML = currentDateTime;
+				document.getElementById('submit_load').style.display = 'none';
 			}
 		};
 		
@@ -71,9 +72,10 @@
 		xhttp.send(formData);
 	}
 
-	function open_zoomin_modal(img_id, total) {
+	function open_zoomin_modal(img_id, total, folder_name) {
 		current_img = img_id;
 		num_imgs = total;
+		folder = folder_name;
 		document.getElementById('zoomin_modal').style.display = 'block';
 		display_img();
 	}
@@ -83,16 +85,13 @@
 	}
 
 	function display_img() {
-		document.getElementById('zoomin_modal_title').innerHTML = '<b>' + current_img + ' / ' + num_imgs + '</b>';
+		document.getElementById('zoomin_modal_title').innerHTML = current_img + ' / ' + num_imgs;
 
-		imgs = document.getElementsByClassName('zoomin_modal_imgs');
-		for (i=0; i<imgs.length; i++) {
-			imgs[i].style.display = 'none';
-		}
-		document.getElementById('zoomin_modal_img' + current_img).style.display = 'inline';
+		document.getElementById('zoomin_original').src = 'static/' + folder + '/input/' + current_img + '.jpg';
+		document.getElementById('zoomin_segmentation').src = 'static/' + folder + '/output/' + current_img + '.jpg';
 	}
 
-	document.addEventListener("keydown", function (event) {
+	document.addEventListener("keyup", function (event) {
 		if (event.keyCode == 37) left();
 		if (event.keyCode == 39) right();
 	});
